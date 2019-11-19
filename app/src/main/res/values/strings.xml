@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Crick</string>
+    <string name="some_error">ERROR</string>
+
+
+    <!--Title-->
+    <string name="title_home">Home</string>
+    <string name="title_profile">Profile</string>
+
+
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_teams"
+        android:title="Teams" />
+<!--    <item android:id="@+id/action_settings"-->
+<!--        android:title="Setting"-->
+<!--        android:icon="@android:drawable/ic_menu_set_as" />-->
+    <item android:id="@+id/navigation_profile"
+        android:title="Profile"
+        android:icon="@drawable/ic_profile" />
+</menu>
