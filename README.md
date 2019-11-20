@@ -1,6 +1,6 @@
 ## Welcome to the **MVVM Design patten** in Kotlin!
 
-### This sample crick app implements MVVM architecture using Coroutine,Navigation,Dagger2,Room,Retrofit,livedata.
+### This sample crick app implements MVVM architecture using Coroutines,Jetpack Navigation,Dagger2,Room,Retrofit,Jetpack Livedata and Databinding.
 ***
 
 ![](https://user-images.githubusercontent.com/17040639/69147062-345e0c00-0af7-11ea-9011-b1253df76045.png)
