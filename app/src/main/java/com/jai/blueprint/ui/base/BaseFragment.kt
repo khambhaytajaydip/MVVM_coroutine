@@ -26,7 +26,6 @@ abstract class BaseFragment<T : ViewDataBinding, V : BaseViewModel> : Fragment()
     lateinit var mRootView: View
     lateinit var mViewDataBinding: T
     lateinit var mViewModel: V
-
     abstract fun getBindingVariable(): Int
     abstract fun getLayoutId(): Int
     abstract fun getViewModel(): V
@@ -88,6 +87,10 @@ abstract class BaseFragment<T : ViewDataBinding, V : BaseViewModel> : Fragment()
 
     fun setTitle(tile: String){
         (activity as MainActivity).setTitle(tile,true)
+    }
+
+    fun setEmptyView(isEmpaty: Boolean = false) {
+        (activity as MainActivity).setEmptyView(isEmpaty)
     }
 
     private fun performDependencyInjection() {

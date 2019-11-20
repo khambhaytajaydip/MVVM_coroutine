@@ -33,10 +33,10 @@ class DetailTeamFragment : BaseFragment<FragmentTeamDetailsBinding, DetailViewMo
     @Inject
     lateinit var listPlayerData: List<Player>
     @Inject
-    lateinit var mPlayerAdapter:PlayerAdapter
+    lateinit var mPlayerAdapter: PlayerAdapter
 
     lateinit var mLayoutManager: GridLayoutManager
-    var countryId :Int = 0
+    var countryId: Int = 0
     @Inject
     lateinit var mGridSpacingItemDecoration: GridSpacingItemDecoration
     private lateinit var fragmentTeamBinding: FragmentTeamDetailsBinding
@@ -89,13 +89,15 @@ class DetailTeamFragment : BaseFragment<FragmentTeamDetailsBinding, DetailViewMo
 
         // load data from local
         detailViewModel.viewModelScope.launch {
-            detailViewModel.fetchDataFromDatabase(countryId).observe(this@DetailTeamFragment, Observer {
-                mLayoutManager.reverseLayout = false
-                listPlayerData = it
-                mPlayerAdapter = PlayerAdapter(listPlayerData)
-                rvTeamDetails.adapter = mPlayerAdapter
+            detailViewModel.fetchDataFromDatabase(countryId)
+                .observe(this@DetailTeamFragment, Observer {
+                    mLayoutManager.reverseLayout = false
+                    listPlayerData = it
+                    if (listPlayerData.isEmpty()) setEmptyView(true) else setEmptyView()
+                    mPlayerAdapter = PlayerAdapter(listPlayerData)
+                    rvTeamDetails.adapter = mPlayerAdapter
 
-            })
+                })
         }
 
 

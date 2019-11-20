@@ -31,7 +31,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     internal lateinit var mViewModelFactory: ViewModelProvider.Factory
     @Inject
     lateinit var homeViewModel: HomeViewModel
-
     lateinit var mLayoutManager: GridLayoutManager
     @Inject
     lateinit var mGridSpacingItemDecoration: GridSpacingItemDecoration
@@ -39,7 +38,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     lateinit var mTeamAdapter: TeamAdapter
     @Inject
     lateinit var lisTeamData: List<Team>
-
 
     private lateinit var fragmentHomeBinding: FragmentHomeBinding
 
@@ -88,6 +86,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
             homeViewModel.fetchDataFromDatabase().observe(this@HomeFragment, Observer {
                 mLayoutManager.reverseLayout = false
                 lisTeamData = it
+                if (lisTeamData.isEmpty()) setEmptyView(true) else setEmptyView()
                 mTeamAdapter = TeamAdapter(lisTeamData)
                 rvTeam.adapter = mTeamAdapter
 
@@ -102,19 +101,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                 rvTeam,
                 object : RecyclerItemClickListener.OnItemClickListener {
                     override fun onItemClick(view: View, position: Int) {
-
                         var bundle = bundleOf(
                             "id" to lisTeamData[position].country_id,
                             "name" to lisTeamData[position].name
                         )
-
 
                         findNavController().navigate(
                             com.jai.blueprint.R.id.detailTeamFragment,
                             bundle
                         )
                     }
-
                     override fun onLongItemClick(view: View, position: Int) {
                     }
 

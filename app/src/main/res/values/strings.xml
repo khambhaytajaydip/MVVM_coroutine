@@ -7,5 +7,9 @@
     <string name="title_home">Home</string>
     <string name="title_profile">Profile</string>
 
+    <!--error messages-->
+    <string name="error_no_daata">No Data Available 😓</string>
+    <string name="error_internet_connetion">No Internet Connection 😓</string>
+
 
 </resources>

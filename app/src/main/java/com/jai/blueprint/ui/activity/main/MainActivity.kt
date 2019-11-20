@@ -40,8 +40,6 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(),
         super.onCreate(savedInstanceState)
         mContext = this
         mActivityMainBinding = getViewDataBinding()
-
-
         setupFragment()
 
     }
@@ -61,11 +59,21 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(),
 
     fun setBackButton() {
         ic_back.visibility = View.VISIBLE
-
         ic_back.setOnClickListener {
             onBackPressed()
         }
+    }
 
+
+    /**
+     * Setup empatyView when list empty
+     */
+    fun setEmptyView(isEmpty: Boolean = false) {
+        if (isEmpty) {
+            emptyList.visibility = View.VISIBLE
+        } else {
+            emptyList.visibility = View.GONE
+        }
     }
 
 
