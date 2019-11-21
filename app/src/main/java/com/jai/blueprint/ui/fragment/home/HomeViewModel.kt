@@ -27,16 +27,12 @@ class HomeViewModel @Inject constructor(val dataManager: DataManager) : BaseView
                         dataManager.insertTeamData(((data as NetworkResult.Success<*>).data as ResponseTeam).data)
                         msg = Pair(0, "")
                     }
+
+                    // error in api calling
                     is NetworkResult.Error -> {
                         msg = Pair(
                             1,
                             ((data as NetworkResult.Error).error as IOException).message.toString()
-                        )
-                    }
-                    is NetworkResult.NoConnection -> {
-                        msg = Pair(
-                            1,
-                            ((data as NetworkResult.NoConnection).exception as IOException).message.toString()
                         )
                     }
                 }

@@ -14,6 +14,7 @@ import com.jai.blueprint.databinding.FragmentHomeBinding
 import com.jai.blueprint.ui.activity.main.MainActivity
 import com.jai.blueprint.ui.fragment.home.HomeViewModel
 import com.jai.blueprint.ui.fragment.profile.ProfileViewModel
+import com.spec.blueprint.utils.OnOneOffClickListener
 import dagger.android.support.AndroidSupportInjection
 
 /**
@@ -122,5 +123,16 @@ abstract class BaseFragment<T : ViewDataBinding, V : BaseViewModel> : Fragment()
         mActivity?.onError(message)
     }
 
-
+    /**
+     * prevent double click on view
+     **/
+    fun View.setSafeOnClickListener(onSafeClick: (View) -> Unit) {
+        try {
+            val safeClickListener = OnOneOffClickListener {
+                onSafeClick(it)
+            }
+            setOnClickListener(safeClickListener)
+        } catch (E: Exception) {
+        }
+    }
 }

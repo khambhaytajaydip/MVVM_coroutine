@@ -43,7 +43,7 @@ class DataManager @Inject constructor(
      * DATABASE Manage
      */
 
-    fun insertTeamData(data: MutableList<Team>): Any {
+   fun insertTeamData(data: MutableList<Team>): Any {
         val result = teamDao.insertAll(data)
         teamDao.updateData()
         return result

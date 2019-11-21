@@ -1,6 +1,7 @@
 package com.jai.blueprint.ui.base
 
 import android.annotation.TargetApi
+import android.app.Dialog
 import android.app.ProgressDialog
 import android.content.Context
 import android.content.pm.PackageManager
@@ -18,6 +19,7 @@ import androidx.databinding.ViewDataBinding
 import com.google.android.material.snackbar.Snackbar
 import com.jai.blueprint.R
 import com.jai.blueprint.utils.AppUtils
+import com.spec.blueprint.utils.OnOneOffClickListener
 import dagger.android.AndroidInjection
 
 /**
@@ -26,7 +28,7 @@ import dagger.android.AndroidInjection
  */
 abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel> : AppCompatActivity(),
     BaseFragment.Callback {
-    var mProgressDialog: ProgressDialog? = null
+    var mProgressDialog: Dialog? = null
     private lateinit var mViewDataBinding: T
     private var mViewModel: V? = null
     fun getViewDataBinding(): T = mViewDataBinding
@@ -127,5 +129,19 @@ abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel> : AppCompatA
         Snackbar.make(findViewById(android.R.id.content), message, Snackbar.LENGTH_LONG)
             .setTextColor(Color.WHITE).setBackgroundTint(Color.RED)
             .show()
+    }
+
+
+    /**
+     * prevent double click on view
+     **/
+    fun View.setSafeOnClickListener(onSafeClick: (View) -> Unit) {
+        try {
+            val safeClickListener = OnOneOffClickListener {
+                onSafeClick(it)
+            }
+            setOnClickListener(safeClickListener)
+        } catch (E: Exception) {
+        }
     }
 }

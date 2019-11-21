@@ -36,44 +36,64 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.core:core-ktx:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation 'com.google.android.material:material:1.2.0-alpha01'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "androidx.appcompat:appcompat:$rootProject.appCompactVersion"
+    implementation "androidx.core:core-ktx:$rootProject.appCompactVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.constarainVersion"
+    implementation "com.google.android.material:material:$rootProject.googleMaterialVersion"
 
     // network
-    implementation "com.squareup.retrofit2:retrofit:2.6.0"
-    implementation "com.squareup.retrofit2:converter-gson:2.6.0"
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVersion"
 
     // database
-    implementation 'androidx.room:room-rxjava2:2.2.1'
-    implementation "androidx.room:room-runtime:2.2.1"
-    kapt 'androidx.room:room-compiler:2.2.1'
+    implementation "androidx.room:room-rxjava2:$rootProject.roomDatabase"
+    implementation "androidx.room:room-runtime:$rootProject.roomDatabase"
+    kapt "androidx.room:room-compiler:$rootProject.roomDatabase"
+
     // font
     implementation "uk.co.chrisjenx:calligraphy:$rootProject.calligraphyVersion"
+
     // image
     implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
+
     // custom view
-    implementation 'com.github.ivbaranov:materialfavoritebutton:0.1.4'
+    implementation "com.github.ivbaranov:materialfavoritebutton:$rootProject.materialFavButtonVersion"
+
     // parser
     implementation "com.google.code.gson:gson:$rootProject.gsonVersion"
+
     // dependency injection
     implementation "com.google.dagger:dagger:$rootProject.dagger2Version"
     kapt "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
     kapt "com.google.dagger:dagger-android-processor:$rootProject.dagger2Version"
     implementation "com.google.dagger:dagger-android-support:$rootProject.dagger2Version"
+
     // Assisted Inject
-    compileOnly "com.squareup.inject:assisted-inject-annotations-dagger2:0.3.2"
-    kapt "com.squareup.inject:assisted-inject-processor-dagger2:0.3.2"
+    compileOnly "com.squareup.inject:assisted-inject-annotations-dagger2:$rootProject.injectVersion"
+    kapt "com.squareup.inject:assisted-inject-processor-dagger2:$rootProject.injectVersion"
+
     // view model
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
-    kapt 'androidx.lifecycle:lifecycle-compiler:2.1.0'
-    api 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-rc01'
+    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.viewModelVersion"
+    kapt "androidx.lifecycle:lifecycle-compiler:$rootProject.viewModelVersion"
+    api "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.ktxVersion"
+
     // work manager
-    implementation "androidx.work:work-runtime-ktx:2.3.0-alpha03"
+    implementation "androidx.work:work-runtime-ktx:$rootProject.workManagerVersion"
+
     //navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$rootProject.nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$rootProject.nav_version"
+
+    //pagination
+    implementation "androidx.paging:paging-runtime:$rootProject.nav_version"
+
+    //shimmer effect
+    implementation "com.facebook.shimmer:shimmer:$rootProject.shimmerEffectVersion"
+
+    //viewpager 2
+    implementation "androidx.viewpager2:viewpager2:$rootProject.viewpager2Version"
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'

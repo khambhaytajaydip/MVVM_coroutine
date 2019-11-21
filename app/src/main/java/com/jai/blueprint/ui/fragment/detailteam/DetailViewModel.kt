@@ -22,33 +22,22 @@ class DetailViewModel @Inject constructor(val dataManager: DataManager) :
 
         return withContext(Dispatchers.IO) {
             var msg: Pair<Int, String>
-
             val isData = dataManager.playerDao.totalPlayerRecords()
             if (isData == 0) {
                 val data = dataManager.fetchPlayerData()
                 when ((data as NetworkResult<Any>)) {
                     is NetworkResult.Success<Any> -> {
-//                    Log.d(AppConstant.DEBUG_TAG, "data in viewmodel:" + ()
                         dataManager.insertPlayerData(((data as NetworkResult.Success<*>).data as ResponsePlayers).data)
-
-
-
                         msg = Pair(0, "")
                     }
+                    // error in api calling
                     is NetworkResult.Error -> {
                         msg = Pair(
                             1,
                             ((data as NetworkResult.Error).error as IOException).message.toString()
                         )
                     }
-                    is NetworkResult.NoConnection -> {
-                        msg = Pair(
-                            1,
-                            ((data as NetworkResult.NoConnection).exception as IOException).message.toString()
-                        )
-                    }
                 }
-
                 msg
             }
             msg = Pair(0, "")

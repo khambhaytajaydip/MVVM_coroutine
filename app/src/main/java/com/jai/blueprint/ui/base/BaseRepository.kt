@@ -26,7 +26,7 @@ open class BaseRepository {
             if (response.isSuccessful) return NetworkResult.Success(response.body()!!)
             return NetworkResult.Error(IOException(setErrorMessage(response)))
         } catch (exception: IOException) {
-            if (exception is NoConnectivityException) return NetworkResult.NoConnection(exception)
+            if (exception is NoConnectivityException) return NetworkResult.Error(exception)
             return NetworkResult.Error(exception)
         }
 

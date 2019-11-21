@@ -24,7 +24,8 @@ interface TeamDao {
 
     @Transaction
     fun updateData() {
-        // this is data update because of random country id in response
+        // this is just for data update because of random country id in response
+        // we can use common method for update and pass parameter of id and code intent doing this.
         updateIndia()
         updatePak()
         updateAus()

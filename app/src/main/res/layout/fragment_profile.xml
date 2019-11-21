@@ -19,8 +19,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="This is PROFILE"
+            android:text="PROFILE FRAGMENT DO WHATEVER YOU WANT!!"
             android:textSize="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
 
