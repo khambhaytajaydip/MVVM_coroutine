@@ -1,5 +1,6 @@
 package com.jai.blueprint.ui.base
 
+import OnOneOffClickListener
 import android.annotation.TargetApi
 import android.app.Dialog
 import android.app.ProgressDialog
@@ -19,7 +20,6 @@ import androidx.databinding.ViewDataBinding
 import com.google.android.material.snackbar.Snackbar
 import com.jai.blueprint.R
 import com.jai.blueprint.utils.AppUtils
-import com.spec.blueprint.utils.OnOneOffClickListener
 import dagger.android.AndroidInjection
 
 /**

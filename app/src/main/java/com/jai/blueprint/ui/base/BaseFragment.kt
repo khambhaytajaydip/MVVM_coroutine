@@ -1,5 +1,6 @@
 package com.jai.blueprint.ui.base
 
+import OnOneOffClickListener
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,7 +15,6 @@ import com.jai.blueprint.databinding.FragmentHomeBinding
 import com.jai.blueprint.ui.activity.main.MainActivity
 import com.jai.blueprint.ui.fragment.home.HomeViewModel
 import com.jai.blueprint.ui.fragment.profile.ProfileViewModel
-import com.spec.blueprint.utils.OnOneOffClickListener
 import dagger.android.support.AndroidSupportInjection
 
 /**
