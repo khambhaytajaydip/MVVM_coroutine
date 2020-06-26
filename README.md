@@ -9,6 +9,8 @@
 
 
 ### Apps Packages 
+
+
     data : It contains all the data accessing with model,network,source packges.
     di   : Dependency providing classes using Dagger2.
     ui   : View classes with their corresponding ViewModel for base,fragment and activity.
