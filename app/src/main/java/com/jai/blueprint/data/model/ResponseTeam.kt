@@ -9,7 +9,7 @@ data class ResponseTeam(
 
 @Entity(tableName = "team")
 data class Team(
-    val code: String = "",
+    val code: String? = "",
     val country_id: Int = 0,
     @PrimaryKey
     val id: Int = 0,
